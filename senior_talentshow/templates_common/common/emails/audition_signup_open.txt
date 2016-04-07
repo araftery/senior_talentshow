@@ -1,0 +1,10 @@
+{% autoescape off %}
+Hi {{ person.first_name }},
+
+Audition sign-ups for the Freshman Talent Show are now open! Click the button below and fill out the form at the bottom of the page to sign up.
+
+You can sign up by filling out the form here: {{ SITE_URL }}{% url 'talentshow-sign-up' %}
+
+See you soon,
+The Crimson Key Society
+{% endautoescape %}

@@ -1,0 +1,46 @@
+{% extends "common/base.html" %}
+{% load core_tags crispy_forms_tags talentshow_tags %}
+
+{% block content %}
+<p class="alert alert-warning alert-top"><strong>Almost done!</strong> Please choose a slot and click "submit" below.</p>
+{% if form.errors %}
+    <p class="alert alert-danger alert-top"><strong>Error:</strong> You must select an available slot from the options below.</p>
+{% endif %}
+<div class="row">
+    <div class="col-md-7">
+    <h2>Available Audition Slots:</h2>
+        <form method="POST">
+        {% csrf_token %}
+            <div class="row">
+            {% for session in sessions %}
+                <h4 class="session-heading">{{ session.location }} {{ session.start_time|date:"n/d" }}</h4>
+                <div class="choose-slot-list">
+                    {% for slot in session.slots %}
+                    <div class="slot slot-{{ slot.pk }}{% if slot.auditioner %} disabled{% endif %}">
+                            <div class="radio col-xs-1"><input type="radio" name="audition_slot" value="{{ slot.pk }}"{% if slot.auditioner %} disabled="disabled"{% endif %}/></div>
+                            <div class="slot-info col-xs-8">{{ slot.start_time|date:"g:i" }} - {{ slot.end_time|date:"g:i A" }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            </div>
+        <div class="row row-submit text-center">
+            <button class="btn btn-primary btn-block bg-red col-sm-2" type="submit">Submit</button>
+        </div>
+        </form>
+    </div>
+
+    <div class="col-md-5">
+        <h2>None of these times work?</h2>
+        <p>Email us at {% talentshow_email %} and we'll do our best to accomodate you.</p>
+    </div>
+</div>
+
+<script>
+$('input[type="radio"]').on('click', function(){
+    var pk = $(this).val();
+    $('.slot').removeClass('selected');
+    $('.slot-' + pk).addClass('selected');
+});
+</script>
+{% endblock content %}

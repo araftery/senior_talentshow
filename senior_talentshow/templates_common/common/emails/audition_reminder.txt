@@ -1,0 +1,7 @@
+{% autoescape off %}
+    Hi {{ auditioner.first_name }},
+    This is a reminder that your audition for the Freshman Talent Show will be tomorrow at {{ auditioner.auditionslot.start_time|date:"g:i A" }} in {{ auditioner.auditionslot.location }}. Please limit your act to roughly 5 minutes. Audition slots are only 10 minutes long, so please arrive early! There's a piano available at the audition site. Groups of up to 4 are permitted. If you have any questions, feel free to reply to this email and we'll get back to you promptly.
+    
+    See you soon,
+    The Crimson Key Society
+{% endautoescape %}

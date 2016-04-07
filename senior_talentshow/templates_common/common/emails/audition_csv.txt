@@ -1,0 +1,9 @@
+{% autoescape off %}
+    Attached are spreadsheets listing the audition slots and auditioners for today's talent show audition sessions:
+
+    {% for session in sessions %}
+    {{ session.start_time|date:'g:i a' }} - {{ session.last_time|date:'g:i a' }} in {{ session.location }}
+    {% endfor %}
+
+    Crimson Key Society
+{% endautoescape %}

@@ -1,0 +1,3 @@
+{% autoescape off %}
+    Hi {{ auditioner.first_name }}! This is a reminder that your audition for the Freshman Talent Show is today at {{ auditioner.auditionslot.start_time|date:"g:i A" }} in {{ auditioner.auditionslot.location }}. See you soon! -CKS
+{% endautoescape %}

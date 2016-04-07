@@ -1,0 +1,31 @@
+{% extends "common/base.html" %}
+{% load core_tags crispy_forms_tags talentshow_tags %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <p class="alert alert-success sign-up-success"><i class="fa fa-check-square"></i> You're all signed up to audition for the talent show!</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h3 class="module-header">Extra Info</h3>
+        <p>Please prepare an act roughly 5 minutes long. Audition slots are only 10 minutes long, so please arrive early!</p>
+        <p>If you have any questions, or to change your audition time, please email us at {% talentshow_email %}.</p>
+    </div>
+    <div class="col-md-4">
+        <h3 class="module-header">Time and Location</h3>
+        <p>Your audition will be in <strong>{{ slot.location }}</strong> at <strong>{{ slot.start_time|date:"g:i A" }}</strong> on <strong>{{ slot.start_time|date:"D, n/d" }}.</strong></p>
+    </div>
+    <div class="col-md-4">
+        <h3 class="module-header">Reminder</h3>
+        <div class="reminder-form-container">
+            <p><i class="fa fa-check-square green"></i> We'll send you a reminder email the night before your audition.</p>
+            {% if slot.auditioner.phone %}
+                {% crispy reminder_form %}
+            {% endif %}
+        </div>
+    </div>
+</div><!-- /.row -->
+
+{% endblock content %}

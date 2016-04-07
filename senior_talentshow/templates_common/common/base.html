@@ -1,0 +1,173 @@
+{% load static compress %}
+{% load core_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A comprehensive guide to Freshman Week, written for the Class of 2019 arriving at Harvard College.">
+    <meta name="author" content="">
+
+    <meta property="og:title" content="Welcome to Harvard, Class of 2019" />
+    <meta property="og:site_name" content="Harvard Freshman Week"/>
+    <meta property="og:image" content="{{ SITE_URL }}{% static 'common/img/harvard-og.jpg' %}" />
+
+
+    <link href="{% static 'common/fontawesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <title>{% block title %}Harvard Freshman Week 2019 | Welcome to Harvard{% endblock %}</title>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    {% if not debug %}
+    {% compress css %}
+      <link rel="stylesheet" type="text/less" media="all" href="{{ STATIC_URL }}common/less/base.less" />
+      <link rel="stylesheet" type="text/less" media="all" href="{{ STATIC_URL }}common/bootstrap/less/bootstrap.less" />
+    {% endcompress %}
+    {% else %}
+      <link rel="stylesheet/less" type="text/css" media="all" href="{{ STATIC_URL }}common/less/base.less" />
+      <link rel="stylesheet/less" type="text/css" media="all" href="{{ STATIC_URL }}common/bootstrap/less/bootstrap.less" />
+      <script src="{% static 'common/js/less-1.7.3.min.js' %}"></script>
+    {% endif %}
+
+    {# STATIC FILES #}
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="{% static 'common/js/jquery.scrollTo.min.js' %}"></script>
+  <script src="{% static 'common/js/smooth_scroll.js' %}"></script>
+  <script src="{% static 'common/js/instafeed.min.js' %}"></script>
+  <script src="{% static 'common/js/main.js' %}"></script>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-6304697-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </head>
+
+  <body>
+
+
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+                  <div class="social-icons pull-left smallscreen-only fa-lg">
+                <span class="fa-stack instagram-icon">
+                <a href="http://www.instagram.com/crimsonkeysociety" target="_blank">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x"></i>
+                </a>
+                </span>
+              <span class="fa-stack facebook-icon">
+                <a href="http://www.facebook.com/senior_talentshow" target="_blank">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x"></i>
+                </a>
+                </span>
+              </div>
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            {% include "common/menu.html" with request=request %}
+
+            {% comment %}
+            dropdown example:
+            <li class="dropdown {% # navactive request 'url-name' %}">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Title <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="{% # navactive request 'url-name' %}"><a href="{% url 'url-name' %}">Page Title</a></li>
+              </ul>
+            </li>
+            {% endcomment %}
+            {% if user.is_admin %}
+              <li><a href="/admin">Admin</a></li>
+            {% endif %}
+
+          </ul>
+            <ul class="nav navbar-nav social-icons pull-right desktop-only">
+            <li>
+              <span class="hashtag">#harvardopeningdays</span>
+            </li>
+              <li>
+                <span class="fa-stack instagram-icon fa-lg">
+                <a href="http://www.instagram.com/crimsonkeysociety" target="_blank">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x"></i>
+                </a>
+                </span>
+              </li>
+              <li>
+              <span class="fa-stack facebook-icon fa-lg">
+                <a href="http://www.facebook.com/senior_talentshow" target="_blank">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x"></i>
+                </a>
+                </span>
+              </li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div><!-- /.navbar -->
+    <div class="header-home">
+      <div class="header-img-home-wrapper">
+      </div>
+    </div>
+
+            
+    {% block before_content %}{% endblock before_content %}
+
+  <div class="body-content">
+    <div class="container content-container">
+
+      <div class="messages">
+      {% for message in messages %}
+        <div class="alert alert-warning">{{ message }}</div>
+      {% endfor %}
+      </div>
+      
+      {% block content %}{% endblock %}
+
+    </div><!-- /.container -->
+  </div>
+
+
+  <div class="footer row">
+      <div class="col-sm-6">
+        <ul class="link-list">
+          {% include "common/menu.html" with request=request %}
+          <li><a href="http://www.crimsonkeysociety.org/about/">About the Crimson Key Society</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6">
+        <div class="crimson-logo pull-right desktop-only"></div>
+      </div>
+  </div>
+
+  <div class="footer-bottom row">
+    <div class="col-xs-12">
+    <img src="{% static 'common/img/cks_logo_white.png' %}" width="20px" height="20px" />
+      Website by the <a href="http://www.crimsonkeysociety.org">Crimson Key Society</a>. Questions? Contact us: <span class="email email-white">crimsonk<span class="nospam">nospam</span>eysociety@gmail.com</span>.
+    </div>
+  </div>
+
+  </body>
+</html>

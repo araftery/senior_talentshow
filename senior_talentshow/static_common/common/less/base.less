@@ -1,0 +1,341 @@
+@import "vars.less";
+@import "fonts.less";
+
+body
+{
+	padding-top:0;
+    color: #222;
+    background-color:#f9f9f9;
+}
+
+.content-container
+{
+    padding-top:0;
+}
+
+.mod-head
+{
+    display:block;
+    width:100%;
+    background-color: @cks-red;
+    color:#fff;
+    font-family:'Source Sans Pro'; 
+    text-transform: uppercase;
+    font-size: 16px;
+    padding:5px;
+
+    .fa
+    {
+        font-size:20px;
+    }
+}
+
+.fa-cks
+{
+    background: url('/static/common/img/cks_logo_red.png') no-repeat;
+    height: @navbar-height;
+    width: 36px;
+    background-size: 36px 36px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.full-width
+{
+    width:100%;
+}
+
+.full-width-homepage, .full-width-homepage img
+{
+    width:100%;
+    user-drag: none; -moz-user-select: none; -webkit-user-drag: none;
+}
+
+.full-width-title-container
+{
+    width:100%;
+    text-align:center;
+    margin-top:@navbar-height;
+}
+.full-width-title
+{
+    font-size:5em;
+    color:#fff;
+    text-transform:uppercase;
+    font-weight:bold;
+    text-align:center;
+    text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.bottom {    
+    vertical-align:bottom;
+}
+
+/*
+.header-img-home
+{
+    background:url('/static/common/img/draft6.jpg') no-repeat;
+    width:1500px;
+    height:300px;
+    position: relative;
+    margin-top: @navbar-height;
+    left: 50%;
+    margin-left: -750px;
+    display:block;
+}
+*/
+
+.header-home
+{
+    display: block;
+    position: fixed;
+    top:@navbar-height;
+    z-index: -1000;
+    width: 100%;
+
+    @media only screen and (max-height: (300px + @navbar-height))  { top: 0; }
+}
+
+.header-img-home-wrapper
+{
+    width: 100%;
+    height: 300px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-image: url('/static/common/img/draft6.jpg');
+    @media 
+        (-webkit-min-device-pixel-ratio: 2), 
+        (min-resolution: 192dpi) { 
+            background-image: url('/static/common/img/draft6-2x.jpg');
+            background-size: 1500px 300px;
+        }
+
+    @media only screen and (max-width: 500px)  { 
+        background-image: url('/static/common/img/harvard-smallscreen.jpg');
+
+        @media 
+            (-webkit-min-device-pixel-ratio: 2), 
+            (min-resolution: 192dpi) { 
+                background-image: url('/static/common/img/harvard-smallscreen-2x.jpg');
+                background-size: 500px 300px;
+            }
+    }
+    @media only screen and (max-width: 320px)  { 
+        background-image: url('/static/common/img/harvard-iphone.jpg');
+    
+        @media 
+            (-webkit-min-device-pixel-ratio: 2), 
+            (min-resolution: 192dpi) { 
+                background-image: url('/static/common/img/harvard-iphone-2x.jpg');
+                background-size: 320px 300px;
+            }
+    }
+}
+
+
+.navbar
+{
+    z-index:100;
+    margin-bottom:0 !important; 
+}
+
+.body-content
+{
+    z-index: 10;
+    position:relative;
+    background:#fff;
+    margin-top:300px + @navbar-height;
+    @media only screen and (max-height: (300px + @navbar-height))  { margin-top: 300px; }
+    width:100%;
+    padding-bottom:50px;
+}
+
+.header-img
+{
+    background:url('/static/common/img/top_bar.jpg') no-repeat;
+    width:1500px;
+    height:95px;
+    position: relative;
+    margin-top: @navbar-height;
+    left: 50%;
+    margin-left: -750px;
+    display:block;
+}
+
+.header-img-home
+{
+    width: 100%;
+}
+
+h3.module-header
+{
+    border-left: 5px solid @cks-red;
+    padding-left: 10px;
+}
+
+h3.module-header-small
+{
+    font-size: 20px;
+}
+
+.footer
+{
+    background-color:#444;
+    border-top:1px #888 solid;
+    color: #fff;
+    color: #dedede;
+    padding:15px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100%;
+}
+
+.link-list
+{
+    padding: 0;
+    list-style: none;
+
+    a 
+    {
+        color: #dedede;
+
+        &:hover
+        {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
+
+.crimson-logo
+{
+    background: url('/static/common/img/2019_logo.png');
+    height: 70px;
+    width: 210px;
+    margin-top:30px;
+}
+
+.footer-bottom
+{
+    background-color:#4d4d4d;
+    border-top:1px #4b4b4b solid;
+    color: #fff;
+    color: #dedede;
+    padding:10px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100%;
+
+    a 
+    {
+        color: #dedede;
+
+        &:hover
+        {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
+
+.block
+{
+    display:block;
+}
+
+.bg-red
+{
+    background-color: @cks-red !important;
+    color:#fff;
+    transition: background-color .25s;
+    border: none !important;
+
+    &:hover
+    {
+        color: #fff !important;
+        background-color: darken(@cks-red, 5%) !important;
+    }
+}
+
+.help-text
+{
+    margin-top:10px;
+}
+
+.green
+{
+    color: #5cb85c;
+}
+
+.alert-top
+{
+    margin-top: 20px;
+}
+
+.social-icons i
+{
+    line-height: @navbar-height;
+}
+
+.fa-facebook, .fa-instagram
+{
+    color: #fff;
+}
+
+.facebook-icon .fa-circle
+{
+    color: #3b5998;
+}
+
+.instagram-icon .fa-circle
+{
+    color: #517fa4;
+}
+
+.cks-icon .fa-circle
+{
+    color: #c0272c;
+}
+
+.desktop-only
+{
+    @media only screen and (max-width: 767px)  { display:none; }
+}
+
+.smallscreen-only
+{
+    @media only screen and (min-width: 768px)  { display:none; }
+}
+
+.nospam
+{
+    display:none;
+}
+
+.email
+{
+    border-bottom: 1px dotted #000;
+}
+
+.email-white
+{
+    border-color: #fff;
+}
+
+.loading
+{
+    text-align: center;
+}
+
+.hashtag
+{
+    line-height: @navbar-height;
+    margin-right:5px;
+}
+
+@import "home.less";
+@import "featured-events.less";
+@import "choose-slot.less";
+@import "talent-show.less";
+@import "tours.less";

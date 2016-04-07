@@ -1,0 +1,21 @@
+{% extends 'common/emails/alert_base.html' %}
+{% block meta_title %}{{ title }}{% endblock %}
+{% block alert_level %}cks{% endblock %}
+{% block heading %}Today's Talent Show Auditioners{% endblock %}
+{% block inner_content %}
+    <tr>
+        <td class="content-block">
+            Attached are spreadsheets listing the audition slots and auditioners for today's talent show audition sessions:
+            <ul>
+                {% for session in sessions %}
+                    <li>{{ session.start_time|date:'g:i a' }} - {{ session.last_time|date:'g:i a' }} in {{ session.location }}</li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            Crimson Key Society
+        </td>
+    </tr>
+{% endblock %}

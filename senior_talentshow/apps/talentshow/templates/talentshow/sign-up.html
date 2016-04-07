@@ -1,0 +1,60 @@
+{% extends "common/base.html" %}
+{% load crispy_forms_tags talentshow_tags %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="module-header">About</h3>
+        <p>Come support your classmates as they reveal their hidden talents, and then vote for a grand-prize winner! Tickets (free, but limited) will only be available on the evening of the event, first-come, first-served with a Freshman Harvard ID. Ticket distribution begins at 5pm at Sanders Theatre. Hosted by the Crimson Key Society.</p>
+    </div>
+    <div class="col-md-4">
+        <h3 class="module-header">Questions?</h3>
+        <p>If you have any questions, or to change your audition time, please email {% autoescape off %}{% talentshow_email %}{% endautoescape %}.</p>
+    </div>
+</div><!-- /.row -->
+
+<div class="row">
+    <div class="col-sm-12">
+        <h3 class="module-header">Sign Up to Audition!</h3>
+            {% if audition_signup_open %}
+                {% crispy form %}
+            {% else %}
+                <p>All of our audition slots have been filled. Please email {% autoescape off %}{% talentshow_email %}{% endautoescape %} if you are still interested in auditioning, and we'll try to accommodate you.</p>
+            {% endif %}
+    </div>
+</div>
+
+<script>
+    function toTitleCase(str)
+    {
+        return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    }
+
+    $('.js-signup-reminder-btn').on('click', function(e){
+        e.preventDefault();
+        $('.js-signup-reminder-form-error').remove();
+        var $form = $('#audition-signup-reminder-form');
+        var data = $form.serializeArray();
+        $.ajax({
+            type:"POST",
+            url:"/talent-show/set-signup-reminder/",
+            data: data,
+            success: function(response){
+                if (response.errors) {
+                    $.each(response.errors, function(field, msg) {
+                        var errorMessage = '<p class="alert alert-danger js-signup-reminder-form-error"><strong>' + toTitleCase(field.replace('_', ' ')) + ':</strong> ' + msg + '</p>';
+                        $('.js-signup-reminder-container').prepend(errorMessage);
+                    });
+                } else {
+                    var successMessage = "<p class='alert alert-success'><strong>Success!</strong> We'll send you an email when the sign-up form opens!</p>";
+                    $('.js-signup-reminder-module-container').html(successMessage);
+                }
+            },
+            error: function(xhr, textStatus, errorThrown){
+                var errorMessage = '<p class="alert alert-danger js-signup-reminder-form-error">Sorry, an error occurred.</p>';
+                $('.js-signup-reminder-container').prepend(errorMessage);
+            }
+        });
+    });
+</script>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'common/emails/alert_base.html' %}
+{% block meta_title %}{{ title }}{% endblock %}
+{% block alert_level %}cks{% endblock %}
+{% block heading %}Choose a time slot for your audition{% endblock %}
+{% block inner_content %}
+    <tr>
+        <td class="content-block">
+            Hi {{ auditioner.first_name }},
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            This is a reminder that you haven't chosen a time slot yet for your Freshman Talent Show audition. You must choose a slot in order to be eligible to audition.
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            <a href="{{ SITE_URL }}{% url 'talentshow-choose-slot' secret=auditioner.secret %}" class="btn-primary">Choose a Slot Now</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            See you soon,<br />
+            The Crimson Key Society
+        </td>
+    </tr>
+{% endblock %}

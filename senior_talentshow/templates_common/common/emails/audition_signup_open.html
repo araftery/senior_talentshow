@@ -1,0 +1,27 @@
+{% extends 'common/emails/alert_base.html' %}
+{% block meta_title %}{{ title }}{% endblock %}
+{% block alert_level %}cks{% endblock %}
+{% block heading %}Freshman Talent Show signups are now open!{% endblock %}
+{% block inner_content %}
+    <tr>
+        <td class="content-block">
+            Hi {{ person.first_name }},
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            Audition sign-ups for the Freshman Talent Show are now open! Click the button below and fill out the form at the bottom of the page to sign up.
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            <a href="{{ SITE_URL }}{% url 'talentshow-sign-up' %}" class="btn-primary">Sign Up to Audition</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="content-block">
+            See you soon,<br />
+            The Crimson Key Society
+        </td>
+    </tr>
+{% endblock %}
