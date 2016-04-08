@@ -1,10 +1,10 @@
 {% autoescape off %}
 Hi {{ auditioner.first_name }},
 
-This is a reminder that you haven't chosen a time slot yet for your Freshman Talent Show audition. You must choose a slot in order to be eligible to audition.
+This is a reminder that you haven't chosen a time slot yet for your Senior Talent Show audition. You must choose a slot in order to be eligible to audition.
 
 You can choose a slot here: {{ SITE_URL }}{% url 'talentshow-choose-slot' secret=auditioner.secret %}
 
 See you soon,
-The Crimson Key Society
+The Senior Class Committee
 {% endautoescape %}

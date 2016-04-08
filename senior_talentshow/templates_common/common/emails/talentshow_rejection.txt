@@ -1,6 +1,6 @@
 {% autoescape off %}Hi {{ auditioner.first_name }},
 
-I'm sorry to say that you were not selected to perform in the Freshman Talent Show. We thank you for your time and for sharing your talent with us. We wish you luck as you settle in at Harvard, and we look forward to seeing you perform in other spaces on campus soon!
+I'm sorry to say that you were not selected to perform in the Senior Talent Show. We thank you for your time and for sharing your talent with us. We wish you luck as you settle in at Harvard, and we look forward to seeing you perform in other spaces on campus soon!
 
 Thanks,
-Bennett Capozzi{% endautoescape %}
+Catarina Martinez{% endautoescape %}

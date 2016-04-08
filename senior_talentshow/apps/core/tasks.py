@@ -107,7 +107,7 @@ def send_signup_open_emails():
     for person in people:
         send_email.delay(
             template_name='audition_signup_open',
-            subject='Freshman Talent Show Sign-Ups are Open!',
+            subject='Senior Talent Show Sign-Ups are Open!',
             from_email=settings.HARVARD_TALENT_EMAIL,
             recipients=[person.email],
             context={'person': person},
