@@ -19,6 +19,7 @@ from talentshow.models import Auditioner, AuditionSession, AuditionSignUpReminde
 class SetAuditionReminderView(AjaxFormViewMixin, UpdateView):
     form = AuditionReminderForm
     model = Auditioner
+    fields = '__all__'
 
     def valid_response(self, form):
         response = super(SetAuditionReminderView, self).valid_response(form)
@@ -133,7 +134,7 @@ class ChooseAuditionSlotView(FormView):
 
         send_email.delay(
             template_name='audition_confirm',
-            subject='Talent Show Audition Confirmation',
+            subject='Senior Talent Show Audition Confirmation',
             from_email=settings.HARVARD_TALENT_EMAIL,
             recipients=[slot.auditioner.email],
             context={'slot': slot}

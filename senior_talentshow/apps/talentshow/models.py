@@ -136,3 +136,4 @@ class AuditionSignUpReminder(models.Model):
     email = models.EmailField(max_length=254, unique=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
+

@@ -41,7 +41,7 @@ $(function(){
         var data = $form.serializeArray();
         $('.form-error').remove();
         $.ajax({
-            url: '/talent-show/set-reminder/',
+            url: '/set-reminder/',
             data: data,
             type: 'POST',
             success: function(response)

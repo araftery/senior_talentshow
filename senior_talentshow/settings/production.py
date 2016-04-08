@@ -20,4 +20,9 @@ STATIC_URL = '/static/'
 
 SETTINGS_MODULE = 'senior_talentshow.settings.production'
 
+BROKER_URL = "amqp://senior_talentshow:senior_talentshow@localhost:5672/senior_talentshow"
 CELERY_RESULT_DBURI = "postgresql://senior_talentshow:senior_talentshow@localhost/senior_talentshow"
+
+# put these two lines at the very bottom of the settings file
+import djcelery
+djcelery.setup_loader()

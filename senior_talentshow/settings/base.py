@@ -42,6 +42,7 @@ THIRD_PARTY_APPS = (
     'localflavor',
     'djrill',
     'djcelery',
+    'kombu.transport.django',
 )
 
 MY_APPS = (
@@ -113,11 +114,13 @@ ADMINS = (
     ('Andrew Raftery', 'andrewraftery@gmail.com'),
 )
 
-EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+MAILGUN_ACCESS_KEY = os.environ.get('MAILGUN_ACCESS_KEY')
+MAILGUN_SERVER_NAME = os.environ.get('MAILGUN_SERVER_NAME')
+
 HARVARD_TALENT_EMAIL = 'Harvard Senior Talent Show <andrewraftery@gmail.com>'
 HARVARD_TALENT_EMAIL_ADDRESS = 'andrewraftery@gmail.com'
-DEFAULT_FROM_EMAIL = HARVARD_TALENT_EMAIL
-MANDRILL_API_KEY = os.environ.get('MANDRILL_API_KEY')
+DEFAULT_FROM_EMAIL = HARVARD_TALENT_EMAIL_ADDRESS
 
 ############################################################
 ##### STATIC FILES #########################################
@@ -168,13 +171,7 @@ TWILIO_PHONE_NUMBER = os.environ.get('TWILIO_PHONE_NUMBER')
 TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
 
-
 CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
-BROKER_URL = "amqp://senior_talentshow:senior_talentshow@localhost:5672/senior_talentshow"
-CELERY_RESULT_DBURI = "postgresql://senior_talentshow:senior_talentshow@localhost/senior_talentshow"
 CELERY_ENABLE_UTC = True
 CELERY_TIMEZONE = TIME_ZONE
 
-# put these two lines at the very bottom of the settings file
-import djcelery
-djcelery.setup_loader()
