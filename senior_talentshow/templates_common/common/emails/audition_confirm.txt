@@ -1,6 +1,6 @@
 {% autoescape off %}Hi {{ slot.auditioner.first_name }}. Your audition for the Senior Talent Show will be at {{ slot.start_time|date:"g:i A" }} on {{ slot.start_time|date:"D, n/d" }} in {{ slot.location }}.
 
-Acts that are chosen to perform in the Senior Talent Show will be notified by the afternoon of Monday, August 31st. Please reserve the hours of 4:30pm to 8pm on Tuesday, September 1st for the sound check in the event that your act is chosen. The show will run from 8pm to 10pm on Tuesday, September 1st. Please also keep in mind that the Convocation ceremony and the Class of 2019 photo will end at 4:30pm on September 1st.
+Acts that are chosen to perform in the Senior Talent Show will be notified the week of April 18th. Please reserve the hours of 5pm to 8pm on Friday, May 20th for the sound check, in the event your act is chosen. The show will run from 8pm to 10pm on Friday, May 20th.
 
 If you have any questions, feel free to reply to this email, and we'll get right back to you.
 

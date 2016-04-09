@@ -118,8 +118,8 @@ EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
 MAILGUN_ACCESS_KEY = os.environ.get('MAILGUN_ACCESS_KEY')
 MAILGUN_SERVER_NAME = os.environ.get('MAILGUN_SERVER_NAME')
 
-HARVARD_TALENT_EMAIL = 'Harvard Senior Talent Show <andrewraftery@gmail.com>'
-HARVARD_TALENT_EMAIL_ADDRESS = 'andrewraftery@gmail.com'
+HARVARD_TALENT_EMAIL_ADDRESS = 'catarinamartinez@college.harvard.edu'
+HARVARD_TALENT_EMAIL = 'Harvard Senior Talent Show <{}>'.format(HARVARD_TALENT_EMAIL_ADDRESS)
 DEFAULT_FROM_EMAIL = HARVARD_TALENT_EMAIL_ADDRESS
 
 ############################################################
