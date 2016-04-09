@@ -50,7 +50,7 @@ def send_reminder_chooseslot_emails():
         auditioner.sent_slot_reminder_email = True
         auditioner.save()
 
-#@periodic_task(run_every=crontab(hour=19, minute=0))
+@periodic_task(run_every=crontab(hour=19, minute=0))
 def send_reminder_emails():
     tomorrow = timezone.now().date() + datetime.timedelta(1)
     next_day = tomorrow + datetime.timedelta(1)
