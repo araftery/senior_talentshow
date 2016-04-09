@@ -20,7 +20,7 @@ STATIC_URL = '/static/'
 
 SETTINGS_MODULE = 'senior_talentshow.settings.production'
 
-BROKER_URL = "amqp://senior_talentshow:senior_talentshow@127.0.0.1:5672/senior_talentshow"
+BROKER_URL = "amqp://senior_talentshow:senior_talentshow@127.0.0.1:5672/"
 CELERY_RESULT_DBURI = "postgresql://senior_talentshow:senior_talentshow@localhost/senior_talentshow"
 
 # put these two lines at the very bottom of the settings file
