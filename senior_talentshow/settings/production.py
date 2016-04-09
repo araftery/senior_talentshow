@@ -11,8 +11,8 @@ DATABASES = {
     }
 }
 
-DEBUG = True
-TEMPLATE_DEBUG = True
+DEBUG = False
+TEMPLATE_DEBUG = False
 TIME_ZONE = 'America/New_York'
 
 STATIC_ROOT = '/webapps/senior_talentshow/static/'
