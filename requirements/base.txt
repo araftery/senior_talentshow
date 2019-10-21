@@ -12,7 +12,7 @@ path.py==5.0
 psycopg2==2.5.3
 pytz==2014.4
 six==1.7.3
-urllib3==1.8.3
+urllib3==1.24.2
 wsgiref==0.1.2
 django-less==0.7.2
 Markdown==2.4.1
