@@ -1,4 +1,4 @@
-Django==1.9.5
+Django==2.2.24
 South==1.0
 WebOb==1.4
 argparse==1.2.1
